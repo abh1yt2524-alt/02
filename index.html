@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reshma's Diet Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="brand"><b>R</b><span><strong>Reshma's Diet Care</strong><small>Personalized Nutrition • Better Health</small></span></div><button id="menu">☰</button>
+<nav id="nav"><a href="#home">Home</a><a href="#services">Services</a><a href="#plans">Plans</a><a href="#profile">Client Profile</a></nav></header>
+
+<section id="home" class="hero reveal"><div><small class="eyebrow">HEALTHY CHOICES • HAPPIER YOU</small><h1>Small Steps.<br><em>Big Changes.</em></h1><p>Personalized nutrition guidance designed around your goals, lifestyle and food preferences.</p><a class="btn" href="#profile">Start Your Profile →</a></div>
+<div class="visual"><div class="circle">RD</div><div class="note">Good food fuels<br><i>a better tomorrow.</i> ♡</div></div></section>
+
+<section class="cards reveal"><a href="#profile"><b>💬</b><span><small>START HERE</small><strong>Diet Consultation</strong><big>₹100</big></span>→</a><a class="dark" href="#plans"><b>▣</b><span><small>POPULAR</small><strong>3-Month Personalized Diet Plan</strong><big>₹4,500</big></span>→</a></section>
+
+<section id="services" class="section reveal"><small class="eyebrow">WHAT WE OFFER</small><h2>Our Services</h2><div class="grid">
+<article>⚖️<h3>Weight Loss</h3><p>Healthy & sustainable weight loss plans.</p></article>
+<article>✦<h3>Healthy Weight Gain</h3><p>Gain healthy weight with balanced nutrition.</p></article>
+<article>✚<h3>Nutrition Support</h3><p>Nutrition support for diagnosed conditions.</p></article>
+<article>◒<h3>Healthy Eating Guidance</h3><p>Build better food habits for long-term health.</p></article>
+<article>❋<h3>Lifestyle & Wellness</h3><p>Better habits, more energy, healthier you.</p></article>
+<article>☷<h3>Personalized Diet Plans</h3><p>Plans tailored to your needs, preferences & goals.</p></article>
+</div></section>
+
+<section id="profile" class="profile reveal"><div><small class="eyebrow">CLIENT PROFILE</small><h2>Let's understand <em>you.</em></h2><p>Fill in the form and your submitted details will be delivered to the email connected to your form service.</p><div class="privacy">🔒 Medical information is sensitive. Tell clients how their information will be used and stored.</div></div>
+<form id="form" action="https://api.web3forms.com/submit" method="POST">
+<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY"><input type="hidden" name="subject" value="New Reshma's Diet Care Client Profile"><input type="checkbox" name="botcheck" style="display:none">
+<h3>Your Information</h3><div class="fields">
+<label>Name *<input name="name" required placeholder="Enter your name"></label><label>Email *<input name="email" type="email" required placeholder="Enter your email"></label>
+<label>Phone / WhatsApp<input name="phone" placeholder="Enter phone number"></label><label>Age *<input name="age" type="number" required placeholder="Enter your age"></label>
+<label>Height<input name="height" placeholder="e.g. 162 cm"></label><label>Weight<input name="weight" placeholder="e.g. 62 kg"></label>
+<label>Goal *<select name="goal" required><option value="">Select your goal</option><option>Weight loss</option><option>Healthy weight gain</option><option>Fitness / muscle</option><option>Better eating habits</option><option>Lifestyle & wellness</option></select></label>
+<label>Activity Level<select name="activity"><option value="">Select activity level</option><option>Low</option><option>Moderate</option><option>Active</option><option>Very active</option></select></label>
+<label class="full">Food Preferences<textarea name="food_preferences" placeholder="Vegetarian, non-vegetarian, dislikes, etc."></textarea></label>
+<label class="full">Medical / Diagnosis Information<textarea name="medical_information" placeholder="Optional — diabetes, thyroid, PCOS, etc."></textarea></label>
+<label class="full">Current Medications<textarea name="medications" placeholder="Optional"></textarea></label>
+<label class="full">Allergies<textarea name="allergies" placeholder="Optional — nuts, dairy, medicines, etc."></textarea></label>
+<label class="full">Anything else?<textarea name="message" placeholder="Goals, routine, concerns..."></textarea></label>
+</div><label class="consent"><input type="checkbox" required> I understand this is nutrition guidance and does not replace medical care. *</label>
+<button class="submit" type="submit">Submit My Profile →</button><div id="status"></div></form></section>
+
+<section id="plans" class="section reveal"><small class="eyebrow">SIMPLE PLANS</small><h2>Choose your next step</h2><div class="plans"><article><h3>Consultation</h3><big>₹100</big><p>A focused consultation to understand your needs and next steps.</p></article><article class="selected"><h3>3-Month Personalized Plan</h3><big>₹4,500</big><p>A structured nutrition journey built around your goals and preferences.</p></article></div></section>
+<section class="cta reveal"><small class="eyebrow">READY WHEN YOU ARE</small><h2>Your healthier routine can start with one small step.</h2><a class="btn" href="#profile">Fill Client Profile →</a></section>
+<footer><strong>Reshma's Diet Care</strong><span>© <span id="year"></span> • Personalized Nutrition</span></footer>
+<script>
+const menu=document.querySelector('#menu'),nav=document.querySelector('#nav');menu.onclick=()=>nav.classList.toggle('open');
+document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));
+const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),{threshold:.1});document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+year.textContent=new Date().getFullYear();
+form.onsubmit=async e=>{if(form.querySelector('[name=access_key]').value==='YOUR_WEB3FORMS_ACCESS_KEY'){e.preventDefault();status.textContent='Add your Web3Forms access key first.';return}e.preventDefault();status.textContent='Sending…';try{let r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(r.ok){form.reset();status.textContent='✓ Profile sent successfully.'}else throw 0}catch(x){status.textContent='Could not send. Please try again.'}};
+</script></body></html>
